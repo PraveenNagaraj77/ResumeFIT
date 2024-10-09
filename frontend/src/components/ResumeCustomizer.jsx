@@ -9,6 +9,11 @@ import './ResumeCustomizer.css'
 GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js`;
 
 const ResumeCustomizer = () => {
+
+  const BASE_URL = 'http://localhost:3000';
+  const SUB_URL='/api/customize-resume';
+  const APIURL = `${BASE_URL}${SUB_URL}` ;
+
   const [resumeFile, setResumeFile] = useState(null);
   const [jobDescription, setJobDescription] = useState("");
   const [customizedResume, setCustomizedResume] = useState("");
@@ -81,8 +86,7 @@ const ResumeCustomizer = () => {
     try {
       setLoading(true);
       console.log("Sending form data to API...");
-      const response = await axios.post(
-        "http://localhost:3000/api/customize-resume",
+      const response = await axios.post(APIURL,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
