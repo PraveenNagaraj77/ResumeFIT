@@ -10,7 +10,7 @@ GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2
 
 const ResumeCustomizer = () => {
 
-  const BASE_URL = 'http://localhost:3000';
+  const BASE_URL = 'https://resumefit.onrender.com';
   const SUB_URL='/api/customize-resume';
   const APIURL = `${BASE_URL}${SUB_URL}` ;
 
